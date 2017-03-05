@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="shirocache">
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <!-- 登录记录缓存 锁定10分钟 -->
+    <cache name="passwordRetryCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="authorizationCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+    <cache name="authenticationCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+ <!-- eternal（永恒）maxEntriesLocalHeap（最大可缓存的个数） timeToLiveSeconds为零那么存活时间为Long.MAX_VALUE，timeToIdleSeconds空闲时间-->
+ <!-- http://blog.csdn.net/vtopqx/article/details/8522333 -->
+ <!-- http://blog.sina.com.cn/s/blog_6b9a45540100yrdv.html -->
+ <!-- statistics次数，overflowToDisk溢出到磁盘 -->
+    <cache name="shiro-activeSessionCache"
+           maxEntriesLocalHeap="2000"
+          
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
+
+</ehcache>
